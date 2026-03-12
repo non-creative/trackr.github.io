@@ -114,7 +114,8 @@ body.em .edit-banner{display:block}
 .sec-btn:active{background:var(--s3)}
 .sec-btn.del{color:var(--red)}
 body.em .sec-btn{display:flex;align-items:center}
-.sec-collapse-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--t3);transition:background var(--dur);flex-shrink:0}
+.cat-drag-handle{display:none;color:var(--t3);padding:4px 2px;cursor:grab;flex-shrink:0;touch-action:none;align-items:center}
+body.em .cat-drag-handle{display:flex}
 .sec-collapse-btn:active{background:var(--s3)}
 .sec-collapse-btn .mi{transition:transform .28s var(--spring);font-size:20px}
 .sec-collapse-btn.open .mi{transform:rotate(180deg)}
@@ -1423,6 +1424,42 @@ function onDragEnd(e){
   drag={active:false,exId:null,ghost:null,rows:null,startY:0,offY:0};
 }
 
+// Category drag reorder
+let catDrag={active:false,catId:null,dayId:null,ghost:null,rows:null,offY:0};
+function initCatDrag(handle,catId,headEl,dayId){
+  handle.addEventListener('touchstart',e=>{
+    e.preventDefault();
+    const touch=e.touches[0];
+    const rect=headEl.getBoundingClientRect();
+    catDrag.catId=catId;catDrag.dayId=dayId;catDrag.active=true;catDrag.offY=touch.clientY-rect.top;
+    catDrag.rows=[...document.querySelectorAll('.sec-head[data-catid]')].map(r=>({el:r,catId:r.dataset.catid,rect:r.getBoundingClientRect()}));
+    const g=headEl.cloneNode(true);
+    Object.assign(g.style,{position:'fixed',left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',zIndex:'999',pointerEvents:'none',opacity:'0.85',background:'var(--bg2)',transition:'none'});
+    document.body.appendChild(g);catDrag.ghost=g;headEl.style.opacity='.3';
+    document.addEventListener('touchmove',onCatDragMove,{passive:false});
+    document.addEventListener('touchend',onCatDragEnd,{once:true});
+  },{passive:false});
+}
+function onCatDragMove(e){
+  if(!catDrag.active)return;e.preventDefault();
+  if(catDrag.ghost)catDrag.ghost.style.top=(e.touches[0].clientY-catDrag.offY)+'px';
+}
+function onCatDragEnd(e){
+  if(!catDrag.active)return;
+  document.removeEventListener('touchmove',onCatDragMove);
+  const t=e.changedTouches[0];
+  if(catDrag.ghost){catDrag.ghost.remove();catDrag.ghost=null;}
+  document.querySelectorAll('.sec-head[data-catid]').forEach(r=>r.style.opacity='');
+  const target=catDrag.rows.find(r=>t.clientY>=r.rect.top&&t.clientY<=r.rect.bottom&&r.catId!==catDrag.catId);
+  if(target){
+    const cats=AP().cats;
+    const fi=cats.findIndex(c=>c.id===catDrag.catId);
+    const ti=cats.findIndex(c=>c.id===target.catId);
+    if(fi!==-1&&ti!==-1){const[m]=cats.splice(fi,1);cats.splice(ti,0,m);save();render();}
+  }
+  catDrag={active:false,catId:null,dayId:null,ghost:null,rows:null,offY:0};
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    RENDER
 ═══════════════════════════════════════════════════════════════════════ */
@@ -1583,7 +1620,10 @@ function renderContent(){
   }
   dayCats.forEach(cat=>{
     const collapsed=collapsedCats.has(cat.id);
-    const head=el('div','sec-head');
+    const head=el('div','sec-head');head.dataset.catid=cat.id;
+    // Drag handle (edit mode only)
+    const catHandle=el('div','cat-drag-handle');catHandle.innerHTML=mi('drag_indicator');
+    initCatDrag(catHandle,cat.id,head,day.id);
     const lbl=el('div','sec-label');lbl.textContent=cat.name;
     const ren=el('button','sec-btn');ren.title='Rename';ren.innerHTML=mi('edit');
     const del=el('button','sec-btn del');del.title='Delete';del.innerHTML=mi('delete');
@@ -1601,7 +1641,7 @@ function renderContent(){
       collapsedCats.has(cat.id)?collapsedCats.delete(cat.id):collapsedCats.add(cat.id);
       haptic([6]);render();
     });
-    head.appendChild(lbl);head.appendChild(ren);head.appendChild(del);head.appendChild(colBtn);
+    head.appendChild(catHandle);head.appendChild(lbl);head.appendChild(ren);head.appendChild(del);head.appendChild(colBtn);
     main.appendChild(head);
     if(!collapsed){
       const card=el('div','ex-card');
