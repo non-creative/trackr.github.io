@@ -97,18 +97,70 @@ input,select{font-family:inherit}
 .tab-pill{flex-shrink:0;padding:8px 18px;border-radius:var(--r-full);background:var(--s2);border:1px solid var(--div);color:var(--t2);font-size:14px;font-weight:700;transition:all var(--dur);display:flex;align-items:center;gap:6px}
 .tab-pill.active{background:var(--accent);border-color:transparent;color:#fff}
 .tab-pill:active{transform:scale(.95)}
+/* ── TOGGLE ──────────────────────────────────────────────────────────── */
+.toggle-track{width:48px;height:28px;border-radius:14px;background:var(--s3);border:1.5px solid var(--div2);position:relative;flex-shrink:0;transition:background .22s,border-color .22s;cursor:pointer}
+.toggle-track.on{background:var(--accent);border-color:var(--accent)}
+.toggle-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .22s cubic-bezier(.34,1.4,.64,1)}
+.toggle-track.on .toggle-thumb{transform:translateX(20px)}
 /* ── EDIT BANNER ────────────────────────────────────────────────────── */
 .edit-banner{display:none;text-align:center;background:var(--amber-s);border-bottom:1px solid rgba(255,179,71,.18);padding:9px;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--amber)}
 body.em .edit-banner{display:block}
 /* ── SCROLL CONTENT ─────────────────────────────────────────────────── */
 .scroll-content{padding:12px 0 calc(var(--safe-b) + 24px)}
 /* ── SECTION HEADER ─────────────────────────────────────────────────── */
-.sec-head{display:flex;align-items:center;padding:20px 22px 8px;gap:8px}
-.sec-label{flex:1;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--label)}
+.sec-head{display:flex;align-items:center;padding:18px 16px 6px;gap:6px}
+.sec-label{flex:1;font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--label)}
 .sec-btn{display:none;color:var(--t2);padding:5px;border-radius:50%;transition:background var(--dur)}
 .sec-btn:active{background:var(--s3)}
 .sec-btn.del{color:var(--red)}
 body.em .sec-btn{display:flex;align-items:center}
+.sec-collapse-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--t3);transition:background var(--dur);flex-shrink:0}
+.sec-collapse-btn:active{background:var(--s3)}
+.sec-collapse-btn .mi{transition:transform .28s var(--spring);font-size:20px}
+.sec-collapse-btn.open .mi{transform:rotate(180deg)}
+/* ── EMPTY STATE ─────────────────────────────────────────────────────── */
+.empty-state{display:flex;flex-direction:column;align-items:center;padding:28px 24px 20px;gap:10px;text-align:center}
+.empty-state .mi{font-size:38px;color:var(--t3);opacity:.5}
+.empty-state-lbl{font-size:14px;font-weight:700;color:var(--t2)}
+.empty-state-sub{font-size:13px;color:var(--t3);line-height:1.5}
+.empty-state-btn{margin-top:4px;padding:10px 22px;border-radius:var(--r-full);background:var(--accent);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;transition:opacity var(--dur)}
+.empty-state-btn:active{opacity:.82}
+/* ── CAT EMPTY (inside card) ──────────────────────────────────────── */
+.cat-empty{display:flex;align-items:center;gap:10px;padding:14px 18px;color:var(--t3);font-size:13px;font-style:italic;border-top:1px dashed var(--div2)}
+/* ── BODY WEIGHT LOG ─────────────────────────────────────────────────── */
+.bw-card{margin:12px 14px 4px;background:var(--s1);border-radius:var(--r-xl);border:1px solid var(--div);overflow:hidden}
+.bw-hdr{padding:14px 18px 4px;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--label)}
+.bw-input-row{display:flex;align-items:center;gap:14px;padding:8px 16px 14px}
+.bw-today{font-size:26px;font-weight:800;color:var(--accent);padding:6px 12px;border-radius:var(--r-md);background:var(--accent-s);cursor:pointer;transition:background var(--dur);font-variant-numeric:tabular-nums}
+.bw-today:active{background:var(--accent-b)}
+.bw-today-lbl{font-size:13px;color:var(--t2);flex:1}
+.bw-today-date{font-size:11px;color:var(--t3);margin-top:2px}
+.bw-chart{padding:4px 10px 12px;border-top:1px solid var(--div)}
+.bw-no-log{padding:0 18px 16px;font-size:13px;color:var(--t3);line-height:1.6}
+/* ── REST TIMER (timer screen) ───────────────────────────────────────── */
+.rest-section{width:100%;max-width:360px;margin-top:20px;background:var(--s1);border-radius:var(--r-xl);border:1px solid var(--div);overflow:hidden}
+.rest-hdr{padding:14px 18px 6px;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--t3)}
+.rest-ctrl{display:flex;align-items:center;justify-content:center;gap:20px;padding:8px 18px 16px}
+.rest-unit-wrap{display:flex;flex-direction:column;align-items:center;gap:4px}
+.rest-unit-lbl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3)}
+.rest-stepper{display:flex;align-items:center;gap:10px}
+.rest-num{font-size:30px;font-weight:800;color:var(--text);min-width:38px;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:-1px}
+.rest-btn{width:32px;height:32px;border-radius:50%;background:var(--s2);border:1px solid var(--div2);color:var(--text);display:flex;align-items:center;justify-content:center}
+.rest-btn:active{background:var(--s3)}
+.rest-sep{font-size:28px;font-weight:200;color:var(--t3);line-height:1;align-self:flex-start;padding-top:6px}
+.rest-active-bar{padding:12px 18px;background:var(--accent-s);border-top:1px solid var(--accent-b);display:flex;align-items:center;gap:14px}
+.rest-active-time{font-size:36px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-1.5px;line-height:1}
+.rest-active-lbl{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.3px}
+.rest-active-sub{font-size:11px;color:var(--accent);opacity:.7;margin-top:2px}
+.rest-skip-btn{margin-left:auto;padding:7px 14px;border-radius:var(--r-full);border:1px solid var(--accent-b);color:var(--accent);font-size:12px;font-weight:700;background:transparent;flex-shrink:0}
+/* ── HISTORY MODAL ───────────────────────────────────────────────────── */
+.hist-row{display:flex;align-items:flex-start;padding:12px 20px;gap:14px}
+.hist-row:not(:last-child){border-bottom:1px solid var(--div)}
+.hist-date{font-size:11px;font-weight:700;color:var(--t3);width:62px;flex-shrink:0;padding-top:2px}
+.hist-w{font-size:15px;font-weight:800;color:var(--text)}
+.hist-sets{font-size:12px;color:var(--t2);margin-top:2px;line-height:1.5}
+.hist-empty{padding:32px 20px;text-align:center;color:var(--t3);font-size:14px}
+.hist-pr{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;color:var(--amber);background:var(--amber-s);border-radius:var(--r-full);padding:2px 7px;margin-left:6px;vertical-align:middle}
 /* ── EXERCISE CARD ──────────────────────────────────────────────────── */
 .ex-card{margin:0 14px 8px;background:var(--s1);border-radius:var(--r-xl);border:1px solid var(--div);overflow:hidden}
 /* ── EXERCISE ROW ───────────────────────────────────────────────────── */
@@ -424,6 +476,20 @@ body.em .add-cat-row{display:flex}
   </div>
 </div>
 
+<!-- HISTORY MODAL -->
+<div class="overlay sheet-wrap" id="histModal">
+  <div class="sheet glass-el">
+    <div class="sheet-grip"></div>
+    <div class="sheet-hdr">
+      <div style="min-width:56px"></div>
+      <div class="sheet-title" id="histTitle">History</div>
+      <button class="sheet-cancel" id="histClose">Done</button>
+    </div>
+    <div id="histList" style="overflow-y:auto;max-height:60vh;-webkit-overflow-scrolling:touch"></div>
+    <div style="height:8px"></div>
+  </div>
+</div>
+
 <!-- SETTINGS PANEL -->
 <div class="sp" id="sp">
   <div class="sp-hdr glass-el">
@@ -660,6 +726,9 @@ function defaultState(){
     accentPreset:'indigo',
     labelDark:LD[0],labelLight:LL[0],
     unit:'kg',repMin:8,repMax:12,
+    restMins:1,restSecs:30,
+    bodyLog:[],
+    features:{restTimer:true,progressCharts:true,bodyWeight:true,haptic:true,historyModal:true},
     activePlanId:pid,
     plans:[{id:pid,name:'My Plan',...defaultPlanContent()}]
   };
@@ -706,14 +775,20 @@ function loadLocal(){
     if(!S.unit)S.unit='kg';
     if(S.repMin==null)S.repMin=8;
     if(S.repMax==null)S.repMax=12;
+    if(S.restMins==null)S.restMins=1;
+    if(S.restSecs==null)S.restSecs=30;
+    if(!S.bodyLog)S.bodyLog=[];
+    if(!S.features)S.features={};
+    const df={restTimer:true,progressCharts:true,bodyWeight:true,haptic:true,historyModal:true};
+    Object.keys(df).forEach(k=>{if(S.features[k]==null)S.features[k]=df[k];});
     if(!S.plans.length)S=defaultState();
     if(!S.activePlanId||!S.plans.find(p=>p.id===S.activePlanId))
       S.activePlanId=S.plans[0].id;
     S.plans.forEach(normalizePlan);
   }catch(e){S=defaultState();}
 }
-function saveLocal(){try{localStorage.setItem(SK,JSON.stringify(S));}catch(e){}}
-function save(){saveLocal();supaSave(S);}
+function saveLocal(){try{S.updatedAt=S.updatedAt||new Date().toISOString();localStorage.setItem(SK,JSON.stringify(S));}catch(e){}}
+function save(){S.updatedAt=new Date().toISOString();saveLocal();supaSave(S);}
 
 /* ═══════════════════════════════════════════════════════════════════════
    UNITS
@@ -828,17 +903,19 @@ async function supaLoad(){
   setSyncDot('syncing');
   const rows=await supaFetch('GET');
   if(!rows?.length||!rows[0].data){setSyncDot('');return null;}
-  // Accept both v5 (plans) and v4 (exs) cloud data
   const d=rows[0].data;
   if(!d.plans&&!d.exs){setSyncDot('');return null;}
-  setSyncDot('synced');return d;
+  setSyncDot('synced');
+  return{data:d,updatedAt:rows[0].updated_at||null};
 }
 let syncT;
 async function supaSave(state){
   if(!hasSupa()){setSyncDot('');return;}
   clearTimeout(syncT);setSyncDot('syncing');
+  state.updatedAt=new Date().toISOString();
+  saveLocal();
   syncT=setTimeout(async()=>{
-    const ok=await supaFetch('PATCH',{data:state,updated_at:new Date().toISOString()});
+    const ok=await supaFetch('PATCH',{data:state,updated_at:state.updatedAt});
     ok?setSyncDot('synced'):(setSyncDot('error'),showToast('⚠ Sync failed — saved locally'));
   },1200);
 }
@@ -854,44 +931,6 @@ async function testSupa(url,key){
     // 'hasdata' = cloud has real workout plans, 'empty' = row exists but no plans
     return(d&&(d.plans?.length||d.exs))?'hasdata':'empty';
   }catch(e){return'err:'+e.message;}
-}
-// Restore cloud data into local state (called after user confirms)
-async function restoreFromCloud(url,key){
-  try{
-    const r=await fetch(url.replace(/\/$/,'')+'/rest/v1/gym_data?id=eq.1',{
-      headers:{'apikey':key,'Authorization':'Bearer '+key}
-    });
-    if(!r.ok)return false;
-    const rows=await r.json();
-    if(!rows?.length||!rows[0].data)return false;
-    const cloud=rows[0].data;
-    if(!cloud.plans&&(cloud.days||cloud.exs)){
-      const pid=uid();
-      cloud.plans=[{id:pid,name:'My Plan',
-        activeDay:cloud.activeDay||cloud.days?.[0]?.id||'',
-        days:cloud.days||[],cats:cloud.cats||[],exs:cloud.exs||[]}];
-      cloud.activePlanId=pid;
-      delete cloud.days;delete cloud.cats;delete cloud.exs;delete cloud.activeDay;
-    }
-    if(!cloud.plans?.length)return false;
-    // Preserve local UI prefs, restore workout data
-    cloud.theme=cloud.theme||S.theme;
-    cloud.themeMode=cloud.themeMode||S.themeMode||'dark';
-    cloud.scheduleLight=cloud.scheduleLight||S.scheduleLight||'06:00';
-    cloud.scheduleDark=cloud.scheduleDark||S.scheduleDark||'22:00';
-    cloud.accentPreset=cloud.accentPreset||S.accentPreset||'indigo';
-    cloud.labelDark=cloud.labelDark||S.labelDark||LD[0];
-    cloud.labelLight=cloud.labelLight||S.labelLight||LL[0];
-    cloud.unit=cloud.unit||S.unit||'kg';
-    if(cloud.repMin==null)cloud.repMin=S.repMin??8;
-    if(cloud.repMax==null)cloud.repMax=S.repMax??12;
-    if(!cloud.activePlanId||!cloud.plans.find(p=>p.id===cloud.activePlanId))
-      cloud.activePlanId=cloud.plans[0].id;
-    cloud.plans.forEach(normalizePlan);
-    S=cloud;
-    saveLocal();applyAll();render();
-    return true;
-  }catch(e){return false;}
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -930,7 +969,7 @@ function tStart(){
   if(T.running)return;
   T.startAt=performance.now();T.running=true;
   cancelAnimationFrame(T.rafId);T.rafId=requestAnimationFrame(tTick);
-  reqWake();updateTimerBtns();updateTimerPill();
+  haptic([20]);reqWake();updateTimerBtns();updateTimerPill();
 }
 function tPause(){
   if(!T.running)return;
@@ -990,6 +1029,28 @@ function renderTimerScreen(container){
         ${mi('screen_lock_portrait')}<span>${wakeLock?'Screen stays on':'Screen may sleep'}</span>
       </div>
       <div id="timerLapsWrap" class="laps-wrap" style="display:${T.laps.length?'block':'none'}"></div>
+      ${feat('restTimer')?`<div class="rest-section" id="restSection">
+        <div class="rest-hdr">Auto-Rest After Session</div>
+        <div class="rest-ctrl">
+          <div class="rest-unit-wrap">
+            <div class="rest-unit-lbl">Min</div>
+            <div class="rest-stepper">
+              <button class="rest-btn" id="restMinDown">${mi('remove')}</button>
+              <div class="rest-num" id="restMinVal">${S.restMins||1}</div>
+              <button class="rest-btn" id="restMinUp">${mi('add')}</button>
+            </div>
+          </div>
+          <div class="rest-sep">:</div>
+          <div class="rest-unit-wrap">
+            <div class="rest-unit-lbl">Sec</div>
+            <div class="rest-stepper">
+              <button class="rest-btn" id="restSecDown">${mi('remove')}</button>
+              <div class="rest-num" id="restSecVal">${String(S.restSecs??30).padStart(2,'0')}</div>
+              <button class="rest-btn" id="restSecUp">${mi('add')}</button>
+            </div>
+          </div>
+        </div>
+      </div>`:''}
     </div>`;
   $('timerPlay').addEventListener('click',()=>{
     T.running?tPause():tStart();
@@ -1001,6 +1062,13 @@ function renderTimerScreen(container){
     else if(T.base>0)tReset();
   });
   if(T.laps.length)renderLaps();
+  if(feat('restTimer')){
+    $('restMinDown').addEventListener('click',()=>{S.restMins=Math.max(0,S.restMins-1);$('restMinVal').textContent=S.restMins;save();haptic([6]);});
+    $('restMinUp').addEventListener('click',()=>{S.restMins=Math.min(10,S.restMins+1);$('restMinVal').textContent=S.restMins;save();haptic([6]);});
+    $('restSecDown').addEventListener('click',()=>{S.restSecs=Math.max(0,(S.restSecs??30)-5);$('restSecVal').textContent=String(S.restSecs).padStart(2,'0');save();haptic([6]);});
+    $('restSecUp').addEventListener('click',()=>{S.restSecs=Math.min(55,(S.restSecs??30)+5);$('restSecVal').textContent=String(S.restSecs).padStart(2,'0');save();haptic([6]);});
+  }
+  if(R.active)renderRestActive(container.querySelector('.timer-screen'));
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -1022,6 +1090,155 @@ $('wInputOk').addEventListener('click',()=>closeWeightInput(true));
 $('wInputCancel').addEventListener('click',()=>closeWeightInput(false));
 wInputModal.addEventListener('click',e=>{if(e.target===wInputModal)closeWeightInput(false);});
 $('wInputField').addEventListener('keydown',e=>{if(e.key==='Enter')closeWeightInput(true);});
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HAPTIC
+═══════════════════════════════════════════════════════════════════════ */
+function haptic(p=[10]){try{if(S.features?.haptic!==false)navigator.vibrate&&navigator.vibrate(p);}catch(e){}}
+function feat(k){return S.features?.[k]!==false;}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REST TIMER
+═══════════════════════════════════════════════════════════════════════ */
+let R={active:false,endsAt:0,rafId:null};
+function restTotal(){return((S.restMins||1)*60+(S.restSecs??30))*1000;}
+function startRest(){
+  if(!feat('restTimer')||restTotal()===0)return;
+  cancelAnimationFrame(R.rafId);
+  R.active=true;R.endsAt=Date.now()+restTotal();
+  haptic([30]);
+  R.rafId=requestAnimationFrame(restTick);
+  updateTimerPill();
+  // Refresh timer screen if open
+  const ts=document.querySelector('.timer-screen');
+  if(ts)renderRestActive(ts);
+}
+function stopRest(){
+  cancelAnimationFrame(R.rafId);
+  R.active=false;R.endsAt=0;
+  updateTimerPill();
+  const ts=document.querySelector('.timer-screen');
+  if(ts)renderRestActive(ts);
+}
+function restTick(){
+  if(!R.active)return;
+  const rem=R.endsAt-Date.now();
+  if(rem<=0){
+    R.active=false;
+    haptic([80,50,80,50,120]);
+    showToast('Rest done — next set! 💪');
+    updateTimerPill();
+    const ts=document.querySelector('.timer-screen');
+    if(ts)renderRestActive(ts);
+    return;
+  }
+  updateTimerPill();
+  const ts=document.querySelector('.timer-screen');
+  if(ts){
+    const el2=ts.querySelector('.rest-active-time');
+    if(el2)el2.textContent=restFmt(rem);
+  }
+  R.rafId=requestAnimationFrame(restTick);
+}
+function restFmt(ms){
+  const s=Math.ceil(ms/1000);
+  return`${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
+}
+function renderRestActive(ts){
+  const existing=ts.querySelector('.rest-active-bar');
+  if(R.active){
+    if(!existing){
+      const rs=ts.querySelector('.rest-section');
+      if(rs){
+        const bar=document.createElement('div');
+        bar.className='rest-active-bar';
+        bar.innerHTML=`<div><div class="rest-active-time">${restFmt(R.endsAt-Date.now())}</div><div class="rest-active-lbl">Resting</div><div class="rest-active-sub">Tap skip to end early</div></div><button class="rest-skip-btn" id="restSkip">Skip</button>`;
+        rs.appendChild(bar);
+        const sk=bar.querySelector('#restSkip');
+        if(sk)sk.addEventListener('click',stopRest);
+      }
+    }
+  } else {
+    if(existing)existing.remove();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HISTORY MODAL
+═══════════════════════════════════════════════════════════════════════ */
+function openHistModal(exId){
+  const ex=AP().exs.find(e=>e.id===exId);if(!ex)return;
+  $('histTitle').textContent=ex.name;
+  const list=$('histList');list.innerHTML='';
+  if(!ex.history?.length){
+    list.innerHTML='<div class="hist-empty">No sessions logged yet</div>';
+  } else {
+    // Find all-time max weight for PR detection
+    const allW=ex.history.map(h=>sessionMaxW(h));
+    const maxW=Math.max(...allW);
+    const rows=[...ex.history].reverse().slice(0,15);
+    rows.forEach(h=>{
+      const ns=normSet(h.sets[0],h.w);
+      const d=new Date(h.date);
+      const t=new Date(),y=new Date(t);y.setDate(t.getDate()-1);
+      const ds=d.toDateString()===t.toDateString()?'Today':d.toDateString()===y.toDateString()?'Yesterday':d.toLocaleDateString('en',{month:'short',day:'numeric'});
+      const topW=sessionMaxW(h);
+      const isPR=(topW===maxW&&h===ex.history[ex.history.findIndex(x=>sessionMaxW(x)===maxW)]);
+      const setsStr=h.sets.map(s=>{const ns2=normSet(s,h.w);return`${fmtW(ns2.w)}×${ns2.r}`;}).join(', ');
+      const row=document.createElement('div');row.className='hist-row';
+      row.innerHTML=`<div class="hist-date">${ds}</div><div><div class="hist-w">${fmtW(topW)}${isPR?'<span class="hist-pr">★ PR</span>':''}</div><div class="hist-sets">${setsStr}</div></div>`;
+      list.appendChild(row);
+    });
+  }
+  $('histModal').classList.add('open');
+}
+$('histClose').addEventListener('click',()=>$('histModal').classList.remove('open'));
+$('histModal').addEventListener('click',e=>{if(e.target===$('histModal'))$('histModal').classList.remove('open');});
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BODY WEIGHT LOG
+═══════════════════════════════════════════════════════════════════════ */
+function todayStr(){return new Date().toISOString().slice(0,10);}
+function bwToday(){return S.bodyLog?.find(e=>e.date===todayStr());}
+function logBW(kg){
+  if(!S.bodyLog)S.bodyLog=[];
+  const today=todayStr();
+  const i=S.bodyLog.findIndex(e=>e.date===today);
+  if(i>=0)S.bodyLog[i].w=kg; else S.bodyLog.push({date:today,w:kg});
+  S.bodyLog=S.bodyLog.sort((a,b)=>a.date.localeCompare(b.date)).slice(-365);
+  save();
+}
+function buildBWChart(log,W,H){
+  if(log.length<2)return null;
+  const entries=log.slice(-30);
+  const weights=entries.map(e=>fromKg(e.w));
+  let yMin=Math.min(...weights),yMax=Math.max(...weights);
+  if(yMin===yMax){yMin=Math.max(0,yMin-2);yMax=yMax+2;}
+  const yRange=yMax-yMin||1;
+  const PAD={t:6,r:8,b:24,l:34};
+  const cW=W-PAD.l-PAD.r,cH=H-PAD.t-PAD.b;
+  function px(i){return PAD.l+(i/(Math.max(entries.length-1,1)))*cW;}
+  function py(v){return PAD.t+cH-(((v-yMin)/yRange)*cH);}
+  let svg=`<svg width="100%" viewBox="0 0 ${W} ${H}" style="display:block;overflow:visible" preserveAspectRatio="none">`;
+  // Grid
+  for(let i=0;i<=2;i++){
+    const y=PAD.t+(cH/2)*i;
+    const val=(yMin+yRange*(1-i/2)).toFixed(1);
+    svg+=`<line x1="${PAD.l}" y1="${y}" x2="${PAD.l+cW}" y2="${y}" stroke="var(--div)" stroke-width="1"/>`;
+    svg+=`<text x="${PAD.l-4}" y="${y+4}" text-anchor="end" font-size="10" fill="var(--t3)" font-family="-apple-system,sans-serif">${val}</text>`;
+  }
+  // X labels
+  [0,Math.floor((entries.length-1)/2),entries.length-1].filter((v,i,a)=>a.indexOf(v)===i).forEach(di=>{
+    svg+=`<text x="${px(di)}" y="${H-4}" text-anchor="middle" font-size="10" fill="var(--t3)" font-family="-apple-system,sans-serif">${entries[di]?.date.slice(5)||''}</text>`;
+  });
+  // Line
+  const pts=entries.map((e,i)=>({x:px(i),y:py(fromKg(e.w))}));
+  const d=pts.map((p,i)=>i===0?`M${p.x.toFixed(1)},${p.y.toFixed(1)}`:`L${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  svg+=`<path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+  pts.forEach(p=>{svg+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="var(--accent)" stroke="var(--s1)" stroke-width="1.5"/>`;});
+  svg+='</svg>';
+  return svg;
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    SESSION SHEET
@@ -1122,8 +1339,8 @@ function renderSessSets(){
     const vhint=el('div','reps-hint');
     setRepsState(vnum,vhint,set.r);
     vwrap.appendChild(vnum);vwrap.appendChild(vhint);
-    down.addEventListener('click',()=>{sessSets[i].r=Math.max(1,sessSets[i].r-1);setRepsState(vnum,vhint,sessSets[i].r);});
-    up.addEventListener('click',()=>{sessSets[i].r=Math.min(30,sessSets[i].r+1);setRepsState(vnum,vhint,sessSets[i].r);});
+    down.addEventListener('click',()=>{sessSets[i].r=Math.max(1,sessSets[i].r-1);setRepsState(vnum,vhint,sessSets[i].r);haptic([6]);});
+    up.addEventListener('click',()=>{sessSets[i].r=Math.min(30,sessSets[i].r+1);setRepsState(vnum,vhint,sessSets[i].r);haptic([6]);});
     ctrl.appendChild(down);ctrl.appendChild(vwrap);ctrl.appendChild(up);
     const del=el('button','set-del');del.innerHTML=mi('delete');
     del.addEventListener('click',()=>{sessSets.splice(i,1);renderSessSets();});
@@ -1159,6 +1376,8 @@ $('ssSave').addEventListener('click',()=>{
     if(ex.history.length>50)ex.history=ex.history.slice(-50);
     save();render();$('sessOverlay').classList.remove('open');
     showToast(valid.every(s=>s.r>=S.repMax)?`All ${S.repMax}s! Time to increase 💪`:'Session saved');
+    haptic([15,30,15]);
+    startRest();
   }
 });
 $('sessOverlay').addEventListener('click',e=>{if(e.target===$('sessOverlay'))$('sessOverlay').classList.remove('open');});
@@ -1237,26 +1456,54 @@ function pillHide(){
 }
 
 function updateTimerPill(){
+  // Rest countdown takes priority over everything
+  if(R.active){
+    const p=$('timerPill');if(!p)return;
+    const rem=Math.max(0,R.endsAt-Date.now());
+    const txt=restFmt(rem);
+    if(!p.classList.contains('show')){
+      p.innerHTML=`<span style="font-size:17px;font-weight:800;letter-spacing:-.5px;font-variant-numeric:tabular-nums">${txt}</span>`;
+      p.dataset.icon='rest';
+      p.style.display='flex';p.classList.add('show');
+    } else if(p.dataset.icon==='rest'){
+      const sp=p.querySelector('span');if(sp)sp.textContent=txt;
+    } else {
+      // Swap from other icon to rest
+      p.classList.add('hide');
+      setTimeout(()=>{
+        p.classList.remove('show','hide');p.style.display='';
+        p.innerHTML=`<span style="font-size:17px;font-weight:800;letter-spacing:-.5px;font-variant-numeric:tabular-nums">${txt}</span>`;
+        p.dataset.icon='rest';p.style.display='flex';p.classList.add('show');
+      },220);
+    }
+    return;
+  }
   if(!T.running){pillHide();return;}
   if(showTimer){
-    // On timer screen → dumbbell to go back to exercises
     pillShow('fitness_center');
   } else {
-    // On exercise screen → hourglass to go to timer
     pillShow('hourglass_empty');
   }
 }
 
 $('timerPill').addEventListener('click',()=>{
+  if(R.active){
+    // Rest running — pill always goes back to exercises (rest continues in background)
+    showTimer=false;showCharts=false;
+    render();
+    if(prevExId&&$('sessOverlay')&&!$('sessOverlay').classList.contains('open')){
+      setTimeout(()=>openSession(prevExId),80);
+    }
+    return;
+  }
   if(showTimer){
-    // Go back to exercises
+    // On timer screen — go back to exercises
     showTimer=false;showCharts=false;
     render();
     if(prevExId&&$('sessOverlay')&&!$('sessOverlay').classList.contains('open')){
       setTimeout(()=>openSession(prevExId),80);
     }
   } else {
-    // Go to timer
     goToTimer();
   }
 });
@@ -1286,10 +1533,15 @@ function renderTabs(){
   tb.innerHTML=mi('timer')+' Timer';
   tb.addEventListener('click',()=>goToTimer());
   util.appendChild(tb);
-  const cb=el('button','tab-pill'+(showCharts?' active':''));
-  cb.innerHTML=mi('bar_chart')+' Progress';
-  cb.addEventListener('click',()=>{showCharts=true;showTimer=false;render();});
-  util.appendChild(cb);
+  if(feat('progressCharts')){
+    const cb=el('button','tab-pill'+(showCharts?' active':''));
+    cb.innerHTML=mi('bar_chart')+' Progress';
+    cb.addEventListener('click',()=>{showCharts=true;showTimer=false;render();});
+    util.appendChild(cb);
+  } else if(showCharts){
+    // Charts disabled — bail out of charts view
+    showCharts=false;
+  }
 
   // ── Day pills: wrap naturally ──
   const days=$('tabsDays');days.innerHTML='';
@@ -1298,9 +1550,16 @@ function renderTabs(){
     const b=el('button','tab-pill'+(active?' active':''));
     b.textContent=day.name;
     b.addEventListener('click',()=>{AP().activeDay=day.id;showTimer=false;showCharts=false;save();render();});
+    // Long-press to rename
+    let lpt=null;
+    b.addEventListener('touchstart',()=>{lpt=setTimeout(()=>{haptic([30,20,30]);openTxt('Rename Day',day.name,'',v=>{day.name=v;save();render();});},600);},{passive:true});
+    b.addEventListener('touchend',()=>clearTimeout(lpt));
+    b.addEventListener('touchmove',()=>clearTimeout(lpt));
     days.appendChild(b);
   });
 }
+
+const collapsedCats=new Set();
 
 function renderContent(){
   const main=$('mainContent');main.innerHTML='';
@@ -1308,8 +1567,22 @@ function renderContent(){
   if(showCharts){main.style.paddingTop='';renderChartsTab(main);return;}
   const plan=AP();
   const day=plan.days.find(d=>d.id===plan.activeDay);
-  if(!day){main.innerHTML='<div style="padding:48px 20px;text-align:center;color:var(--t2)">No workout days. Add one in Settings.</div>';return;}
-  plan.cats.filter(c=>c.dayId===day.id).forEach(cat=>{
+  if(!day){
+    const es=el('div','empty-state');
+    es.innerHTML=`${mi('calendar_today')}<div class="empty-state-lbl">No workout days yet</div><div class="empty-state-sub">Add days in Settings to get started</div>`;
+    const btn=el('button','empty-state-btn');btn.innerHTML=mi('settings')+' Open Settings';
+    btn.addEventListener('click',()=>{renderSettings();$('sp').classList.add('open');});
+    es.appendChild(btn);main.appendChild(es);return;
+  }
+  const dayCats=plan.cats.filter(c=>c.dayId===day.id);
+  if(!dayCats.length){
+    const es=el('div','empty-state');
+    es.innerHTML=`${mi('folder_open')}<div class="empty-state-lbl">No categories here</div><div class="empty-state-sub">Add a category to organise your exercises</div>`;
+    if(editMode){const btn=el('button','empty-state-btn');btn.innerHTML=mi('add')+' Add Category';btn.addEventListener('click',()=>openTxt('New Category','','',v=>{plan.cats.push({id:uid(),dayId:day.id,name:v});save();render();}));es.appendChild(btn);}
+    main.appendChild(es);
+  }
+  dayCats.forEach(cat=>{
+    const collapsed=collapsedCats.has(cat.id);
     const head=el('div','sec-head');
     const lbl=el('div','sec-label');lbl.textContent=cat.name;
     const ren=el('button','sec-btn');ren.title='Rename';ren.innerHTML=mi('edit');
@@ -1320,36 +1593,52 @@ function renderContent(){
       openConfirm(`Delete "${cat.name}"?`,`Also removes ${n} exercise${n!==1?'s':''}.`,
         ()=>{plan.cats=plan.cats.filter(c=>c.id!==cat.id);plan.exs=plan.exs.filter(e=>e.catId!==cat.id);save();render();});
     });
-    head.appendChild(lbl);head.appendChild(ren);head.appendChild(del);
-    main.appendChild(head);
-    const card=el('div','ex-card');
-    plan.exs.filter(ex=>ex.catId===cat.id).forEach(ex=>{
-      const row=el('div','ex-row');row.dataset.exid=ex.id;
-      const ready=isReady(ex);
-      const handle=el('div','ex-drag-handle');handle.innerHTML=mi('drag_indicator');
-      initDrag(handle,ex.id,row);
-      const del2=el('button','ex-del');del2.innerHTML=mi('remove');
-      del2.addEventListener('click',e2=>{e2.stopPropagation();openConfirm(`Delete "${ex.name}"?`,'Cannot be undone.',()=>{AP().exs=AP().exs.filter(x=>x.id!==ex.id);save();render();});});
-      const info=el('div','ex-info');
-      const name=el('div','ex-name');name.textContent=ex.name;
-      const last=el('div','ex-last');last.textContent=lastLabel(ex)||'Tap to log first session';
-      info.appendChild(name);info.appendChild(last);
-      const badge=el('div','ex-badge');if(ready)badge.classList.add('ready');
-      const bval=el('div','ex-badge-val');bval.textContent=fmtW(ex.w);
-      const bico=el('span','ex-badge-icon');bico.innerHTML=mi(ready?'arrow_upward':'chevron_right');
-      badge.appendChild(bval);badge.appendChild(bico);
-      const eBtn=el('button','ex-edit-btn');eBtn.innerHTML=mi('more_horiz');
-      eBtn.addEventListener('click',e2=>{e2.stopPropagation();openActSheet(ex.id);});
-      row.appendChild(handle);row.appendChild(del2);row.appendChild(info);row.appendChild(badge);row.appendChild(eBtn);
-      row.addEventListener('click',e2=>{
-        if(e2.target.closest('.ex-del')||e2.target.closest('.ex-edit-btn')||e2.target.closest('.ex-drag-handle'))return;
-        editMode?openActSheet(ex.id):openSession(ex.id);
-      });
-      card.appendChild(row);
+    // Collapse arrow (always visible)
+    const colBtn=el('button','sec-collapse-btn'+(collapsed?'':' open'));
+    colBtn.innerHTML=mi('expand_more');
+    colBtn.addEventListener('click',e2=>{
+      e2.stopPropagation();
+      collapsedCats.has(cat.id)?collapsedCats.delete(cat.id):collapsedCats.add(cat.id);
+      haptic([6]);render();
     });
-    const addEx=el('div','add-ex-row');addEx.innerHTML=mi('add')+' Add Exercise';
-    addEx.addEventListener('click',()=>openAddExModal(cat.id));
-    card.appendChild(addEx);main.appendChild(card);
+    head.appendChild(lbl);head.appendChild(ren);head.appendChild(del);head.appendChild(colBtn);
+    main.appendChild(head);
+    if(!collapsed){
+      const card=el('div','ex-card');
+      const catExs=plan.exs.filter(ex=>ex.catId===cat.id);
+      catExs.forEach(ex=>{
+        const row=el('div','ex-row');row.dataset.exid=ex.id;
+        const ready=isReady(ex);
+        const handle=el('div','ex-drag-handle');handle.innerHTML=mi('drag_indicator');
+        initDrag(handle,ex.id,row);
+        const del2=el('button','ex-del');del2.innerHTML=mi('remove');
+        del2.addEventListener('click',e2=>{e2.stopPropagation();openConfirm(`Delete "${ex.name}"?`,'Cannot be undone.',()=>{AP().exs=AP().exs.filter(x=>x.id!==ex.id);save();render();});});
+        const info=el('div','ex-info');
+        const name=el('div','ex-name');name.textContent=ex.name;
+        const last=el('div','ex-last');last.textContent=lastLabel(ex)||'Tap to log first session';
+        info.appendChild(name);info.appendChild(last);
+        const badge=el('div','ex-badge');if(ready)badge.classList.add('ready');
+        const bval=el('div','ex-badge-val');bval.textContent=fmtW(ex.w);
+        const bico=el('span','ex-badge-icon');bico.innerHTML=mi(ready?'arrow_upward':'chevron_right');
+        badge.appendChild(bval);badge.appendChild(bico);
+        const eBtn=el('button','ex-edit-btn');eBtn.innerHTML=mi('more_horiz');
+        eBtn.addEventListener('click',e2=>{e2.stopPropagation();openActSheet(ex.id);});
+        row.appendChild(handle);row.appendChild(del2);row.appendChild(info);row.appendChild(badge);row.appendChild(eBtn);
+        row.addEventListener('click',e2=>{
+          if(e2.target.closest('.ex-del')||e2.target.closest('.ex-edit-btn')||e2.target.closest('.ex-drag-handle'))return;
+          editMode?openActSheet(ex.id):openSession(ex.id);
+        });
+        card.appendChild(row);
+      });
+      if(!catExs.length&&editMode){
+        const ce=el('div','cat-empty');ce.innerHTML=mi('add_circle_outline')+' Add an exercise to get started';
+        ce.addEventListener('click',()=>openAddExModal(cat.id));
+        card.appendChild(ce);
+      }
+      const addEx=el('div','add-ex-row');addEx.innerHTML=mi('add')+' Add Exercise';
+      addEx.addEventListener('click',()=>openAddExModal(cat.id));
+      card.appendChild(addEx);main.appendChild(card);
+    }
   });
   const addCat=el('div','add-cat-row');addCat.innerHTML=mi('create_new_folder')+' Add Category';
   addCat.addEventListener('click',()=>openTxt('New Category','','',v=>{AP().cats.push({id:uid(),dayId:day.id,name:v});save();render();}));
@@ -1373,6 +1662,7 @@ function openActSheet(exId){
   if(last&&isToday(last.date)){
     mkAct('edit_note','Edit Today\'s Session',false,()=>{oClose(actSheet);openEditSession(exId);});
   }
+  if(feat('historyModal'))mkAct('history','View History',false,()=>{oClose(actSheet);openHistModal(exId);});
   mkAct('edit_note','Rename',false,()=>{oClose(actSheet);openTxt('Rename',ex.name,'',v=>{ex.name=v;save();render();});});
   mkAct('drive_file_move','Move to Category',false,()=>{oClose(actSheet);openMoveSheet(exId);});
   mkAct('delete','Delete Exercise',true,()=>{oClose(actSheet);openConfirm(`Delete "${ex.name}"?`,'Cannot be undone.',()=>{AP().exs=AP().exs.filter(x=>x.id!==exId);save();render();});});
@@ -1555,6 +1845,32 @@ function buildDayChart(exs,W,H){
 
 function renderChartsTab(body){
   body.innerHTML='';
+
+  // ── BODY WEIGHT LOG ──
+  if(feat('bodyWeight')){
+  const bwCard=el('div','bw-card');
+  const bwHdr=el('div','bw-hdr');bwHdr.textContent='Body Weight';
+  bwCard.appendChild(bwHdr);
+  const bwRow=el('div','bw-input-row');
+  const today=bwToday();
+  const bwVal=el('button','bw-today');bwVal.textContent=today?fmtW(today.w):'Log';
+  const bwInfo=el('div','');
+  const bwLbl=el('div','bw-today-lbl');bwLbl.textContent=today?'Today\'s weight':'Tap to log today';
+  const bwDate=el('div','bw-today-date');bwDate.textContent=today?new Date().toLocaleDateString('en',{weekday:'long',month:'long',day:'numeric'}):'';
+  bwInfo.appendChild(bwLbl);bwInfo.appendChild(bwDate);
+  bwVal.addEventListener('click',()=>openWeightInput(today?.w||toKg(70),kg=>{logBW(kg);renderChartsTab(body);}));
+  bwRow.appendChild(bwVal);bwRow.appendChild(bwInfo);
+  bwCard.appendChild(bwRow);
+  if((S.bodyLog||[]).length>=2){
+    const svg=buildBWChart(S.bodyLog,320,140);
+    if(svg){const bwChartDiv=el('div','bw-chart');bwChartDiv.style.cssText='background:var(--s2);border-radius:var(--r-sm);padding:4px';bwChartDiv.innerHTML=svg;bwCard.appendChild(bwChartDiv);}
+  } else {
+    const nd=el('div','bw-no-log');nd.textContent=`Log your weight for a few days to see your trend.`;bwCard.appendChild(nd);
+  }
+  body.appendChild(bwCard);
+  } // end feat bodyWeight
+
+  // ── EXERCISE CHARTS ──
   const plan=AP();
   plan.days.forEach(day=>{
     const catIds=plan.cats.filter(c=>c.dayId===day.id).map(c=>c.id);
@@ -1722,6 +2038,31 @@ function renderSettings(){
   addD.addEventListener('click',()=>openTxt('New Workout Day','','e.g. Arms, Upper, Cardio…',v=>{const id=uid();AP().days.push({id,name:v});AP().activeDay=id;showTimer=false;showCharts=false;save();render();renderSettings();}));
   dCard.appendChild(addD);
 
+  // ── FEATURES
+  addSec(body,'Features');const ftCard=lastCard(body);
+  const ftNote=el('div','');ftNote.style.cssText='padding:10px 18px 4px;font-size:12px;color:var(--t3);line-height:1.6';
+  ftNote.textContent='Disabled features are fully removed from the app. Core logging, plans, timer, and sync are always available.';
+  ftCard.appendChild(ftNote);
+  [
+    {k:'restTimer',     label:'Auto-Rest Timer',      sub:'Countdown after saving a session'},
+    {k:'progressCharts',label:'Progress Tab',          sub:'Charts and exercise history graphs'},
+    {k:'bodyWeight',    label:'Body Weight Log',       sub:'Track weight over time in Progress'},
+    {k:'historyModal',  label:'Session History',       sub:'View past sessions per exercise'},
+    {k:'haptic',        label:'Haptic Feedback',       sub:'Vibration on taps and events'},
+  ].forEach((f,i)=>{
+    const row=addRow(ftCard,'',f.label,f.sub);
+    if(i>0)row.style.borderTop='1px solid var(--div)';
+    const tog=mkToggle(feat(f.k),v=>{
+      S.features[f.k]=v;
+      // If disabling rest timer, stop any active rest
+      if(f.k==='restTimer'&&!v)stopRest();
+      // If disabling charts while on that tab, go back to exercises
+      if(f.k==='progressCharts'&&!v&&showCharts){showCharts=false;}
+      save();render();renderSettings();
+    });
+    row.appendChild(tog);
+  });
+
   // ── CLOUD SYNC
   addSec(body,'Cloud Sync');const cCard=lastCard(body);
   const sr=el('div','supa-status');
@@ -1743,43 +2084,53 @@ function renderSettings(){
     stLbl.textContent='Testing…';stLbl.className='cfg-st';
     const r=await testSupa(u,k);
     if(r.startsWith('err:')){stLbl.textContent='✗ '+r;stLbl.className='cfg-st err';return;}
-    // Connection good — save credentials first
     saveCfg(u,k);
     stLbl.textContent='✓ Connected';stLbl.className='cfg-st ok';
     supaFormOpen=false;
-    if(r==='hasdata'){
-      // Cloud has existing data — ask user what to do
-      setTimeout(()=>{
-        openConfirm(
-          'Cloud backup found',
-          'Your Supabase has existing workout data. Restore it to this device, or upload your current local data to the cloud instead.',
-          async()=>{
-            // Restore from cloud
-            const ok=await restoreFromCloud(u,k);
-            setSyncDot(ok?'synced':'error');
-            showToast(ok?'✓ Restored from cloud':'✗ Restore failed — data unchanged');
-            renderSettings();
-          },
-          'Restore from Cloud'
-        );
-        // Override cancel to mean "push local → cloud"
-        const confCancelBtn=$('confCancel');
-        const origHandler=confCancelBtn.onclick;
-        confCancelBtn.textContent='Keep Local & Upload';
-        confCancelBtn.onclick=()=>{
-          closeConfirm(false);
-          confCancelBtn.textContent='Cancel';
-          supaSave(S);
-          setSyncDot('syncing');
-          showToast('Local data uploading to cloud…');
-          renderSettings();
-        };
-      },400);
-    } else {
-      // Cloud is empty — just push local data up
+    const localEmpty=S.plans.every(p=>p.exs.length===0&&p.days.length===0);
+    if(r==='empty'){
+      // Cloud is blank — push local up
       supaSave(S);
-      showToast('✓ Supabase connected — data backed up');
+      showToast(localEmpty?'✓ Supabase connected':'✓ Connected — data backed up to cloud');
       renderSettings();
+    } else {
+      // Cloud has data — fetch the row to get timestamp
+      const row=await supaLoad();
+      if(!row){supaSave(S);renderSettings();return;}
+      if(localEmpty){
+        // Nothing local — pull cloud silently
+        applyCloudData(row.data);
+        showToast('✓ Restored from cloud');
+        renderSettings();
+        return;
+      }
+      // Both have data — compare timestamps
+      const cloudTs=row.updatedAt?new Date(row.updatedAt):null;
+      const localTs=S.updatedAt?new Date(S.updatedAt):null;
+      if(cloudTs&&localTs){
+        if(cloudTs>localTs){
+          applyCloudData(row.data);showToast('✓ Synced from cloud');
+        } else {
+          supaSave(S);showToast('✓ Connected — local data is more recent, syncing up');
+        }
+        renderSettings();
+      } else {
+        // No timestamps — genuinely ambiguous, ask once
+        setTimeout(()=>{
+          openConfirm(
+            'Which data to keep?',
+            'Both this device and your cloud have workout data. Which one should be the source of truth?',
+            async()=>{
+              applyCloudData(row.data);
+              showToast('✓ Restored from cloud');renderSettings();
+            },
+            'Use Cloud'
+          );
+          const cancelBtn=$('confCancel');
+          cancelBtn.textContent='Keep Local';
+          cancelBtn.onclick=()=>{closeConfirm(false);supaSave(S);showToast('Local data synced to cloud');renderSettings();};
+        },400);
+      }
     }
   });
   form.appendChild(note);form.appendChild(urlIn);form.appendChild(keyIn);form.appendChild(svBtn);form.appendChild(stLbl);
@@ -1829,11 +2180,23 @@ function addSec(parent,title){
   const c=el('div','sp-card');s.appendChild(t);s.appendChild(c);parent.appendChild(s);
 }
 function lastCard(body){return body.lastElementChild?.querySelector('.sp-card');}
-function addRow(card,iconHtml,label){
+function addRow(card,iconHtml,label,sub){
   const r=el('div','sp-row');
-  const ic=el('span','sp-row-ico');ic.innerHTML=iconHtml;
-  const lb=el('span','sp-row-lbl');lb.textContent=label;
-  r.appendChild(ic);r.appendChild(lb);card.appendChild(r);return r;
+  if(iconHtml){const ic=el('span','sp-row-ico');ic.innerHTML=iconHtml;r.appendChild(ic);}
+  const lbWrap=el('div','');lbWrap.style.cssText='flex:1;display:flex;flex-direction:column;gap:1px';
+  const lb=el('span','sp-row-lbl');lb.textContent=label;lbWrap.appendChild(lb);
+  if(sub){const sb=el('span','');sb.style.cssText='font-size:11px;color:var(--t3)';sb.textContent=sub;lbWrap.appendChild(sb);}
+  r.appendChild(lbWrap);card.appendChild(r);return r;
+}
+function mkToggle(on,onChange){
+  const track=el('button','toggle-track'+(on?' on':''));
+  track.innerHTML='<span class="toggle-thumb"></span>';
+  track.addEventListener('click',()=>{
+    const next=!track.classList.contains('on');
+    track.classList.toggle('on',next);
+    haptic([8]);onChange(next);
+  });
+  return track;
 }
 function mkSeg(labels,onChange,activeIdx){
   const seg=el('div','seg');
@@ -1930,56 +2293,66 @@ window.addEventListener('online',()=>{if(hasSupa())supaSave(S);});
 /* ═══════════════════════════════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════════════════════════════ */
+// Normalise and apply cloud data blob into S, then save + render
+function applyCloudData(cloud){
+  if(!cloud.plans&&(cloud.days||cloud.exs)){
+    const pid=uid();
+    cloud.plans=[{id:pid,name:'My Plan',
+      activeDay:cloud.activeDay||cloud.days?.[0]?.id||'',
+      days:cloud.days||[],cats:cloud.cats||[],exs:cloud.exs||[]}];
+    cloud.activePlanId=pid;
+    delete cloud.days;delete cloud.cats;delete cloud.exs;delete cloud.activeDay;
+  }
+  if(!cloud.plans?.length)return false;
+  cloud.theme=cloud.theme||S.theme;
+  cloud.themeMode=cloud.themeMode||S.themeMode||'dark';
+  cloud.scheduleLight=cloud.scheduleLight||S.scheduleLight||'06:00';
+  cloud.scheduleDark=cloud.scheduleDark||S.scheduleDark||'22:00';
+  cloud.accentPreset=cloud.accentPreset||S.accentPreset||'indigo';
+  cloud.labelDark=cloud.labelDark||S.labelDark||LD[0];
+  cloud.labelLight=cloud.labelLight||S.labelLight||LL[0];
+  cloud.unit=cloud.unit||S.unit||'kg';
+  if(cloud.repMin==null)cloud.repMin=S.repMin??8;
+  if(cloud.repMax==null)cloud.repMax=S.repMax??12;
+  if(!cloud.activePlanId||!cloud.plans.find(p=>p.id===cloud.activePlanId))
+    cloud.activePlanId=cloud.plans[0].id;
+  cloud.plans.forEach(normalizePlan);
+  S=cloud;saveLocal();applyAll();render();
+  return true;
+}
+
 async function init(){
   loadCfg();loadLocal();applyAll();render();
-  if(hasSupa()&&navigator.onLine){
-    const cloud=await supaLoad();
-    if(cloud){
-      // Migrate v4 flat format
-      if(!cloud.plans&&(cloud.days||cloud.exs)){
-        const pid=uid();
-        cloud.plans=[{id:pid,name:'My Plan',
-          activeDay:cloud.activeDay||cloud.days?.[0]?.id||'',
-          days:cloud.days||[],cats:cloud.cats||[],exs:cloud.exs||[]}];
-        cloud.activePlanId=pid;
-        delete cloud.days;delete cloud.cats;delete cloud.exs;delete cloud.activeDay;
-      }
-      if(cloud.plans?.length){
-        // Check if local data is essentially empty (fresh install)
-        const localIsEmpty=S.plans.every(p=>p.exs.length===0&&p.days.length===0);
-        if(localIsEmpty){
-          // Fresh install — silently restore cloud data, no prompt needed
-          cloud.theme=cloud.theme||S.theme;
-          cloud.themeMode=cloud.themeMode||S.themeMode||'dark';
-          cloud.scheduleLight=cloud.scheduleLight||S.scheduleLight||'06:00';
-          cloud.scheduleDark=cloud.scheduleDark||S.scheduleDark||'22:00';
-          cloud.accentPreset=cloud.accentPreset||S.accentPreset||'indigo';
-          cloud.labelDark=cloud.labelDark||S.labelDark||LD[0];
-          cloud.labelLight=cloud.labelLight||S.labelLight||LL[0];
-          cloud.unit=cloud.unit||S.unit||'kg';
-          if(cloud.repMin==null)cloud.repMin=S.repMin??8;
-          if(cloud.repMax==null)cloud.repMax=S.repMax??12;
-          if(!cloud.activePlanId||!cloud.plans.find(p=>p.id===cloud.activePlanId))
-            cloud.activePlanId=cloud.plans[0].id;
-          cloud.plans.forEach(normalizePlan);
-          S=cloud;saveLocal();applyAll();render();
-          showToast('✓ Restored from cloud');
-        } else {
-          // Local has data too — ask before overwriting
-          setTimeout(()=>{
-            openConfirm(
-              'Cloud backup found',
-              'Restore your workout data from the cloud? Your current local data will be replaced.',
-              async()=>{
-                const ok=await restoreFromCloud(supaUrl,supaKey);
-                showToast(ok?'✓ Restored from cloud':'✗ Restore failed — data unchanged');
-              },
-              'Restore from Cloud'
-            );
-          },600);
-        }
-      }
+  if(!hasSupa()||!navigator.onLine)return;
+  const row=await supaLoad();
+  if(!row){
+    // Cloud empty or unreachable — push local up if we have data
+    const hasLocal=S.plans.some(p=>p.exs.length>0||p.days.length>0);
+    if(hasLocal)supaSave(S);
+    return;
+  }
+  const localEmpty=S.plans.every(p=>p.exs.length===0&&p.days.length===0);
+  if(localEmpty){
+    // Nothing local — pull cloud silently
+    applyCloudData(row.data);
+    showToast('✓ Restored from cloud');
+    return;
+  }
+  // Both have data — compare timestamps to decide direction
+  const cloudTs=row.updatedAt?new Date(row.updatedAt):null;
+  const localTs=S.updatedAt?new Date(S.updatedAt):null;
+  if(cloudTs&&localTs){
+    if(cloudTs>localTs){
+      applyCloudData(row.data);
+      showToast('✓ Synced from cloud');
+    } else {
+      // Local is newer or equal — push up silently
+      supaSave(S);
     }
+  } else {
+    // No timestamps to compare — cloud is already loaded, local has data.
+    // Default: push local up (user worked offline, now reconnected)
+    supaSave(S);
   }
 }
 init();
