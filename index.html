@@ -819,13 +819,17 @@ function normSet(s,fallbackW){return(typeof s==='object'&&s!==null)?s:{w:fallbac
 function sessionMaxW(h){return Math.max(...h.sets.map(s=>normSet(s,h.w).w));}
 function isReady(ex){
   if(!ex.history?.length)return false;
-  const last=ex.history[ex.history.length-1];
-  if(!last.sets.length)return false;
+  const prev=ex.history.filter(h=>!isToday(h.date));
+  if(!prev.length)return false;
+  const last=prev[prev.length-1];
   return last.sets.every(s=>normSet(s,last.w).r>=S.repMax);
 }
 function lastLabel(ex){
   if(!ex.history?.length)return null;
-  const last=ex.history[ex.history.length-1];
+  // Skip today's entry — show the most recent previous day session
+  const prev=ex.history.filter(h=>!isToday(h.date));
+  if(!prev.length)return null;
+  const last=prev[prev.length-1];
   const d=new Date(last.date),t=new Date(),y=new Date(t);y.setDate(t.getDate()-1);
   const ds=d.toDateString()===t.toDateString()?'Today':d.toDateString()===y.toDateString()?'Yesterday':d.toLocaleDateString('en',{month:'short',day:'numeric'});
   const topW=sessionMaxW(last);
